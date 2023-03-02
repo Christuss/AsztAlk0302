@@ -4,20 +4,43 @@
  */
 package ciklusok;
 
+import java.util.Scanner;
+
 /**
  *
  * @author User
  */
 public class Szamok {
+
+    static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
-        for (int k = 2; k < 5; k++) {
-            for (int i = 2; i < 5; i++) {
-                for (int j = 2; j < 5; j++) {
-                System.out.println(k + "" + i + "" + j);
-                } 
+
+        System.out.print("Legyen ismétlés?");
+        String bekeres = sc.nextLine();
+        int darab = 0;
+        if (bekeres.contains("igen")) {
+            for (int k = 2; k < 5; k++) {
+                for (int i = 2; i < 5; i++) {
+                    for (int j = 2; j < 5; j++) {
+                        System.out.println(k + "" + i + "" + j);
+                        darab++;
+                    }
+                }
             }
-        }
-        
-             
+        } else if (bekeres.contains("nem")) {
+                for (int k = 2; k < 5; k++) {
+                    for (int i = 2; i < 5; i++) {
+                        for (int j = 2; j < 5; j++) {
+                            if (k != i && i != j && k != j) {
+                                System.out.println(k + "" + i + "" + j);
+                                darab++;
+                            }
+
+                        }
+                    }
+                }
+            }
+        System.out.println("Darab: " + darab);
     }
 }
